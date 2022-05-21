@@ -1,20 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import useCachedResources from './hooks/useCachedResources';
+import useColorScheme from './hooks/useColorScheme';
+import Navigation from './navigation';
+import { useMemo, useState } from 'react';
+import AuthContext from './contexts/AuthContext';
+import { UserResponse as User } from './typings';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    const isLoadingComplete = useCachedResources();
+    const colorScheme = useColorScheme();
+    const [userData, setUserData] = useState<User | undefined>();
+    const [authenticated, setAuthenticated] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    const authContextValue: AuthContext = useMemo(
+        () => ({
+            userData,
+            setUserData,
+            authenticated,
+            setAuthenticated,
+        }),
+        [userData, authenticated],
+    );
+
+    if (!isLoadingComplete) {
+        return null;
+    } else {
+        return (
+            <SafeAreaProvider>
+                <AuthContext.Provider value={authContextValue}>
+                    <Navigation colorScheme={colorScheme} />
+                    <StatusBar />
+                </AuthContext.Provider>
+            </SafeAreaProvider>
+        );
+    }
+}

@@ -1,0 +1,48 @@
+import { Product } from "../typings";
+
+export const productsData: Product[] = [
+    {
+        group: 'Phones',
+        id: "iphone-13",
+        name: 'Iphone-13',
+        description: "Get 22% off",
+        image: "https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/apple/Apple-iPhone-13/Green/Apple-iPhone-13-Green-thumbnail.png",
+        deductibleCredit: 100,
+        actualPrice: 800,
+        offerPrice: 624,
+        condition: 'New',
+    },
+    {
+        group: 'Phones',
+        id: "Samsung-Galaxy-S22",
+        name: 'Samsung-Galaxy-S22',
+        description: "Get 25% off",
+        image: "https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/samsung/Samsung-Galaxy-S22/Phantom-Black/Samsung-Galaxy-S22-Phantom-Black-thumbnail.png",
+        deductibleCredit: 120,
+        actualPrice: 800,
+        offerPrice: 600,
+        condition: 'New',
+    },
+    {
+        group: 'Smart Watch',
+        id: "Apple-Watch-Series-7-41mm",
+        name: 'Apple-Watch-Series-7-41mm',
+        description: "Get 20% off",
+        image: "https://cdn.tmobile.com/content/dam/t-mobile/en-p/internet-devices/apple/Apple-Watch-Series-7-41mm/Green-Aluminum-Green-Sport-Band/Apple-Watch-Series-7-41mm-Green-Aluminum-Green-Sport-Band-thumbnail.png",
+        deductibleCredit: 70,
+        actualPrice: 500,
+        offerPrice: 100,
+        condition: 'Like New',
+    },
+    {
+        group: 'Tablet',
+        id: "Apple-iPad-mini-6th-gen",
+        name: 'Apple-iPad-mini-6th-gen',
+        description: "Get 15% off",
+        image: "https://cdn.tmobile.com/content/dam/t-mobile/en-p/internet-devices/apple/Apple-iPad-mini-6th-gen/Purple/Apple-iPad-mini-6th-gen-Purple-thumbnail.png",
+        deductibleCredit: 85,
+        actualPrice: 650,
+        offerPrice: 550,
+        condition: 'Like New',
+    },
+];
